@@ -1,4 +1,6 @@
 const form = document.querySelector('.feedback-form');
+const label = document.querySelector('.input');
+const text = document.querySelector('.text');
 
 form.addEventListener('input', getValue);
 
@@ -26,11 +28,10 @@ form.addEventListener('submit', formSub);
 function formSub(event) {
   event.preventDefault();
   localStorage.removeItem('feedback-form-state');
-  if (form.elements.email.value === '') {
-    alert('Please enter your email');
-  }
-  if (form.elements.message.value === '') {
-    alert('Please enter your message');
+  if (form.elements.email.value === '' || form.elements.message.value === '') {
+    label.append('Please enter your email !!!');
+    text.append('Please enter your message !!!');
+    return;
   }
 
   console.log({

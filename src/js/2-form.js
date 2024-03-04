@@ -1,10 +1,8 @@
 const form = document.querySelector('.feedback-form');
-const label = document.querySelector('.input');
-const text = document.querySelector('.text');
 
-form.addEventListener('input', getValue);
+form.addEventListener('input', saveFormData);
 
-function getValue() {
+function saveFormData() {
   const formData = {
     email: form.elements.email.value.trim(),
     message: form.elements.message.value.trim(),
@@ -12,32 +10,32 @@ function getValue() {
   localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 }
 
-window.addEventListener('load', loadForm);
+window.addEventListener('load', loadFormData);
 
-function loadForm() {
-  const saveData = localStorage.getItem('feedback-form-state');
-  if (saveData) {
-    const { email, message } = JSON.parse(saveData);
+function loadFormData() {
+  const savedData = localStorage.getItem('feedback-form-state');
+  if (savedData) {
+    const { email, message } = JSON.parse(savedData);
     form.elements.email.value = email;
     form.elements.message.value = message;
   }
 }
 
-form.addEventListener('submit', formSub);
+form.addEventListener('submit', handleSubmit);
 
-function formSub(event) {
+function handleSubmit(event) {
   event.preventDefault();
   localStorage.removeItem('feedback-form-state');
-  if (form.elements.email.value === '' || form.elements.message.value === '') {
-    label.append('Please enter your email !!!');
-    text.append('Please enter your message !!!');
+
+  const emailValue = form.elements.email.value.trim();
+  const messageValue = form.elements.message.value.trim();
+
+  if (emailValue === '' || messageValue === '') {
+    alert('Please enter your email and message!');
     return;
   }
 
-  console.log({
-    email: form.elements.email.value.trim(),
-    message: form.elements.message.value.trim(),
-  });
+  console.log({ email: emailValue, message: messageValue });
 
   form.reset();
 }

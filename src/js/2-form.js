@@ -39,3 +39,4 @@ function handleSubmit(event) {
 
   form.reset();
 }
+

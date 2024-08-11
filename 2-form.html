@@ -10,23 +10,31 @@
     <title>Form</title>
     <script type="module" crossorigin src="/goit-js-hw-09/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/goit-js-hw-09/assets/modulepreload-polyfill-3cfb730f.js">
-    <link rel="stylesheet" href="/goit-js-hw-09/assets/2-form-e7236fd6.css">
-    <link rel="stylesheet" href="/goit-js-hw-09/assets/styles-4b08f9fd.css">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-09/assets/vendor-b8415275.js">
+    <link rel="stylesheet" href="/goit-js-hw-09/assets/vendor-a088063d.css">
+    <link rel="stylesheet" href="/goit-js-hw-09/assets/2-form-a2bcd61c.css">
+    <link rel="stylesheet" href="/goit-js-hw-09/assets/styles-4bc902b2.css">
   </head>
   <body>
     <div class="text-container">
       <p><a href="./index.html">Go back</a></p>
     </div>
-    <form class="feedback-form" autocomplete="off">
-      <label class="form-label input">
-        Email
-        <input class="form-input" type="email" name="email" autofocus />
-      </label>
-      <label class="form-label text">
-        Message
-        <textarea class="form-text" name="message" rows="8"></textarea>
-      </label>
-      <button class="form-button" type="submit">Submit</button>
-    </form>
+    <main class="container">
+      <form class="feedback-form" autocomplete="off">
+        <label class="form-label input">
+          Email
+          <input class="form-input" type="email" name="email" autofocus />
+        </label>
+        <label class="form-label text">
+          Message
+          <textarea class="form-text" name="message" rows="8"></textarea>
+        </label>
+        <button class="form-button" type="submit">Submit</button>
+      </form>
+      <div class="list-container">
+        <h2 class="title">Messages</h2>
+        <ul class="form-list"></ul>
+      </div>
+    </main>
   </body>
 </html>

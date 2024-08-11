@@ -13,16 +13,22 @@
     <div class="text-container">
       <p><a href="./index.html">Go back</a></p>
     </div>
-    <form class="feedback-form" autocomplete="off">
-      <label class="form-label input">
-        Email
-        <input class="form-input" type="email" name="email" autofocus />
-      </label>
-      <label class="form-label text">
-        Message
-        <textarea class="form-text" name="message" rows="8"></textarea>
-      </label>
-      <button class="form-button" type="submit">Submit</button>
-    </form>
+    <main class="container">
+      <form class="feedback-form" autocomplete="off">
+        <label class="form-label input">
+          Email
+          <input class="form-input" type="email" name="email" autofocus />
+        </label>
+        <label class="form-label text">
+          Message
+          <textarea class="form-text" name="message" rows="8"></textarea>
+        </label>
+        <button class="form-button" type="submit">Submit</button>
+      </form>
+      <div class="list-container">
+        <h2 class="title">Messages</h2>
+        <ul class="form-list"></ul>
+      </div>
+    </main>
   </body>
 </html>

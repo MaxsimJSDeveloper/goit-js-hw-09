@@ -1,3 +1,5 @@
+import { Toast } from 'toaster-js';
+
 const form = document.querySelector('.feedback-form');
 
 form.addEventListener('input', saveFormData);
@@ -31,12 +33,32 @@ function handleSubmit(event) {
   const messageValue = form.elements.message.value.trim();
 
   if (emailValue === '' || messageValue === '') {
-    alert('Please enter your email and message!');
+    new Toast(
+      'Please enter your email and message!',
+      Toast.TYPE_ERROR,
+      Toast.TIME_NORMAL
+    );
     return;
   }
 
-  console.log({ email: emailValue, message: messageValue });
+  const formData = { email: emailValue, message: messageValue };
+  addMessage(formData);
 
   form.reset();
 }
 
+function addMessage(dto) {
+  const list = document.querySelector('.form-list');
+
+  const listItem = document.createElement('li');
+  const email = document.createElement('h3');
+  const message = document.createElement('p');
+
+  email.textContent = `email: ${dto.email}`;
+  message.textContent = `message: ${dto.message}`;
+
+  listItem.appendChild(email);
+  listItem.appendChild(message);
+
+  list.appendChild(listItem);
+}
